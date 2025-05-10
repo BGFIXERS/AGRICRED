@@ -1,115 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AgriCred - AI-Driven Microfinance for Farmers</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
+  <meta charset="UTF-8">
+  <title>AgriFinConnect Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>AgriCred</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-text">
-            <h2>AI-Driven Microfinance for Smallholder Farmers</h2>
-            <p>Empowering farmers globally through data-driven credit solutions.</p>
-            <a href="#how-it-works" class="cta-btn">Learn More</a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" onclick="showSection('home')">AgriFinConnect</a>
+      <div class="ms-auto">
+        <button class="btn btn-light me-2" onclick="showSection('login')">Login</button>
+        <button class="btn btn-outline-light" onclick="showSection('signup')">Sign Up</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="section active-section text-center d-flex align-items-center justify-content-center">
+    <div class="overlay">
+      <h1>Welcome to AgriFinConnect</h1>
+      <p class="lead">Empowering Farmers and Investors in Bangladesh</p>
+      <button class="btn btn-success" onclick="showSection('signup')">Get Started</button>
+    </div>
+  </section>
+
+  <!-- Login -->
+  <section id="login" class="section" style="background-color: #1e5631;">
+    <div class="container overlay">
+      <h2>Login</h2>
+      <form action="login.php" method="POST" class="mx-auto" style="max-width: 400px;">
+        <input class="form-control mb-3" name="email" type="email" placeholder="Email" required>
+        <input class="form-control mb-3" name="password" type="password" placeholder="Password" required>
+        <button class="btn btn-success w-100">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Sign Up -->
+  <section id="signup" class="section" style="background-color: #1b4332;">
+    <div class="container overlay">
+      <h2>Sign Up</h2>
+      <form action="signup.php" method="POST" class="mx-auto" style="max-width: 400px;">
+        <input class="form-control mb-3" name="name" type="text" placeholder="Full Name" required>
+        <input class="form-control mb-3" name="email" type="email" placeholder="Email" required>
+        <input class="form-control mb-3" name="password" type="password" placeholder="Password" required>
+        <select class="form-control mb-3" name="role" required>
+          <option value="">Select Role</option>
+          <option value="farmer">Farmer</option>
+          <option value="investor">Investor</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button class="btn btn-success w-100">Sign Up</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Farmer Dashboard -->
+  <section id="farmer-dashboard" class="section">
+    <div class="container overlay">
+      <h2>Farmer Dashboard</h2>
+      <button class="btn btn-primary mb-3">Create New Project</button>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5>Wheat Cultivation</h5>
+          <p>Status: Ongoing</p>
+          <p>Investment: $3,000</p>
+          <button class="btn btn-outline-secondary">Upload Progress</button>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About AgriCred</h2>
-        <p>
-            AgriCred is a revolutionary platform that uses AI to analyze crop health, farm size, and productivity 
-            to assess creditworthiness for smallholder farmers. We use satellite imagery, drone footage, and smartphone photos 
-            to help farmers access microloans and improve their financial inclusion.
-        </p>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features">
-        <h2>Key Features</h2>
-        <ul>
-            <li>
-                <h3>AI-Powered Crop Analysis</h3>
-                <p>Farmers can upload images, and our AI system assesses crop health and predicts yields.</p>
-            </li>
-            <li>
-                <h3>Predictive Income Modeling</h3>
-                <p>Forecast income potential based on crop health, weather data, and market trends.</p>
-            </li>
-            <li>
-                <h3>Instant Loan Offers</h3>
-                <p>Microloans are offered instantly to eligible farmers directly via their mobile wallet.</p>
-            </li>
-            <li>
-                <h3>Embedded Advisory Services</h3>
-                <p>Our platform provides real-time advisory services to help improve yield and reduce risk.</p>
-            </li>
-        </ul>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works">
-        <h2>How It Works</h2>
-        <div class="steps">
-            <div class="step">
-                <h3>Step 1: Upload Crop Image</h3>
-                <p>Farmers upload photos of their crops or receive automated scans via drones.</p>
-            </div>
-            <div class="step">
-                <h3>Step 2: AI Analysis</h3>
-                <p>Our AI system analyzes crop type, health, and growth stage, providing an accurate assessment.</p>
-            </div>
-            <div class="step">
-                <h3>Step 3: Predict Yield and Credit Score</h3>
-                <p>ML models predict harvest value, and a credit score is generated based on crop health.</p>
-            </div>
-            <div class="step">
-                <h3>Step 4: Instant Loan Approval</h3>
-                <p>Eligible farmers are offered instant microloans via their mobile wallets for easy access.</p>
-            </div>
+  <!-- Investor Dashboard -->
+  <section id="investor-dashboard" class="section">
+    <div class="container overlay">
+      <h2>Investor Dashboard</h2>
+      <h4>Available Projects</h4>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5>Rice Farming Project</h5>
+          <p>Goal: $5,000 | Raised: $2,800</p>
+          <button class="btn btn-success">Invest Now</button>
         </div>
-    </section>
+      </div>
+      <h4>My Investments</h4>
+      <ul class="list-group">
+        <li class="list-group-item">Wheat Project - $500 invested</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form id="contact-form">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
+  <!-- Admin Dashboard -->
+  <section id="admin-dashboard" class="section">
+    <div class="container overlay">
+      <h2>Admin Dashboard</h2>
+      <div class="row mb-4 text-center">
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h4>Users</h4>
+            <p>145</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h4>Active Projects</h4>
+            <p>12</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h4>Total Invested</h4>
+            <p>$24,000</p>
+          </div>
+        </div>
+      </div>
+      <h4>Pending Approvals</h4>
+      <div class="card">
+        <div class="card-body">
+          <h5>Tomato Farming in Sylhet</h5>
+          <button class="btn btn-success">Approve</button>
+          <button class="btn btn-danger">Reject</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 AgriCred. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script> <!-- Link to external JS file -->
+  <!-- Section Switcher Script -->
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active-section'));
+      document.getElementById(id).classList.add('active-section');
+    }
+  </script>
 </body>
 </html>
